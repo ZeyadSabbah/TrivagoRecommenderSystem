@@ -126,12 +126,16 @@ class data_transformation:
             local_data['item_interactions'] = item_interactions.item_interactions
             local_data['maximum_step'] = maximum_step.maximum_step
             local_data['top_list'] = top_list.top_list
-            GlobalPath = './Datasets/clean_data/ItemsFeatures/item_global.csv'
+            GlobalPath = '../TrivagoRecommenderSystem1/Datasets/clean_data/ItemsFeatures/item_global.csv'
             GlobalData = pd.read_csv(GlobalPath)
             GlobalData.item_id = GlobalData.item_id.apply(lambda x: str(x))
             data = local_data.merge(GlobalData, on='item_id', how='left')
-            NaNcolumns = ['NumberOfProperties', 'NumberInImpressions', 'NumberInReferences', 'NumberAsClickout', 'NumberAsFinalClickout',
-                          'FClickoutToImpressions', 'FClickoutToReferences', 'FClickoutToClickout', 'MeanPrice', 'AveragePriceRank']
+            
+            NaNcolumns = []
+            for col in data.columns:
+              if data.isna().any()[col]==True:
+                NaNcolumns.append(col)
+                
             for column in NaNcolumns:
               MeanValue = data[column].mean()
               data[column] =  data[column].fillna(MeanValue)
