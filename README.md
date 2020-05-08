@@ -83,3 +83,9 @@ Models were evaluated on the validation set that has never been seen by the mode
  *Test Evaluation*
  Since More Trained Model performed the best, the model was being evaluated on the test set that has never been used in any selection or has ever seen by the model.
  The MRR score is 0.61719.
+
+### Conclusion
+
+Balancing datasets is not a mandatory step to proceed with any project, it may enhance one metric and worsen another, it really depends on what metrics are used to evaluate how good the model is.
+
+Collecting more data is not necessary if one can interpret data differently, considering disregarded data can improve training models and can help businesses achieve higher levels of success.
