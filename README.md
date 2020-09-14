@@ -2,6 +2,11 @@
 ## Definition
 Session-based recommender system that re-ranks given list of accommodations based on user's interactions in a session.
 
+## Data Source
+To understand more about the data, this link https://recsys.trivago.cloud/challenge/dataset/
+In order to obtain the dataset, one should register first, then go to Dataset tab on the webpage, and download the dataset from there.
+Here is the link to download it https://recsys.trivago.cloud/challenge/dataset/?download=1
+
 ## Introduction
 trivago is a well-known in Europe as an e-commerce website that gives recommendations of accommodations to users. The recommendations are personalized based on the interacting of users with the different items they are looking for. The whole purpose of the project or the Challenge is to re-rank the items that had been provided to the users so that the item the user had chosen is at the top of the list.
 
