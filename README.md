@@ -11,12 +11,39 @@ Dataset used in this project is from RecSys 2019 Challenge. The size of the trai
 The metric used to evaluate participants' models is Mean Reciprocal Rank.
 Let's say that there is a list of 5 items, the user chose the first item, then the Reciprocal Rank would be 1, if the item chose the second, the score would then be 0.5, and so on. But, there isn't just one user, there are many users, so the Mean Reciprocal Rank would be the average score of all the scores.
 
+## Data Exploratoration Research Questions
+- What is the timeline of the training and test sets?
+6 and 2 days for train and test sets, respectively.
+
+- What is the distribution of the number of steps users take on Trivago?
+It's a right skewed data distribution, users clickout in their early steps on the app or the website. That matches with the duration of session as well.
+
+- What is the most repeated action on Trivago?
+An interaction with items' images is the first action, comes in second clicking out the item.
+
+- Which platforms most of the users use?
+The first is the Brazilian, second is United States, third is the Japanese, fourth is United Kingdom.
+
+- Is there a difference in traffic on Trivago through the week?
+Sessions seem to be increasing a bin from drop that happened in Saturday. The data is not enough to be sure that this is the case every week since this is the only data for one week.
+
+- What is the relationship between the number of steps and the duration of the session?
+There is a weak positive relationship.
+
+- What is the percentage of users selecting the item comes first in the list?
+Around 38% of the users select the first item in the list which assures that their recommendation engine is doing great job addressing the right items to the users.
+
+Note: Some of the data are not consistent. Some selected items do not lie in the impressions lists.
+
+Key Insights
+1. The more steps are taken the higher the rank (in terms of order only) of the selected items.
+2. The device used in the session affects the Average Step, the larger the device is the higher the average step for the same rank of items.
+3. The users are mainly from Brazil, US, Japan, United Kingdom, German, India, Mexico, and Australia.
+
 ## Strategy
 The idea I have been following to tackle this Ranking Problem is actually by converting the Ranking Problem into Binary Classification Problem, so instead of ranking the items, I would design the model to answer the question "Would the user select this item?" for every item in the list, I would not care that much about the answer of the  model, but I would be really interested in the Probability of the user selecting this item, and based on the probabilities of selecting the items, items can then be sorted in a descending order.
 
-## Questions  
-I started this project with having two questions in mind that I wanted to get an answer for.
-
+## ML Research Questions  
 **1st Question**
 If the user is provided a list of 25 items, and the user selects only one item, and the re-ranking problem became binary classification problem, would not that leave us with imbalanced dataset to train models on?
 The question is "Would different resampling techniques help the model becomes better giving better recommendations?"
